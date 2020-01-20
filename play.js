@@ -30,7 +30,7 @@ $(document).ready(function() {
     let rewind = $('.pcast-rewind');
     let forward = $('.pcast-forward');
     let progress = $('.progress-bar');
-    let speed = $('.pcast-speed');
+    let speed = $('.btn-audio.speed');
     let mute = $('.pcast-mute');
     let currentTime = $('.capacity .start');
     let duration = $('.capacity .end');
@@ -73,16 +73,15 @@ $(document).ready(function() {
     }, false);
 
     progress.on('click', function(e) {
-        console.log(111, e.offsetX / e.target.offsetWidth);
+        //TODO div onclick
         audio.currentTime = Math.floor(audio.duration) * (e.offsetX / e.target.offsetWidth);
     }, false);
 
     speed.on('click', function() {
         currentSpeedIdx = currentSpeedIdx + 1 < speeds.length ? currentSpeedIdx + 1 : 0;
         audio.playbackRate = speeds[currentSpeedIdx];
-        this.textContent = speeds[currentSpeedIdx] + 'x';
-        return true;
-    }, false);
+        $(this).text(speeds[currentSpeedIdx] + 'x');
+    });
 
     VolumeSlider.change('input', function() {
         audio.volume = parseInt(this.value) / 10;
@@ -105,7 +104,11 @@ $(document).ready(function() {
     $(document).on('click', '.btn-audio.repeat', function() {
         let audio = $('.audio audio')[0];
         // $('.btn-audio.repeat').toggleClass('audio-background');
-        audio.currentTime = 0;
+        if ($('.btn-audio.repeat-time').hasClass('audio-background')) {
+            audio.currentTime = audio.currentTime - 3;
+        } else {
+            audio.currentTime = 0;
+        }
     });
 
     $(document).on('click', '.btn-audio.repeat-time', function() {
@@ -120,8 +123,8 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '.btn-audio.speed', function() {
-        let audio = $('.audio audio')[0];
-        console.log($('.speed').text())
-        audio.playbackRate = 1.2;
+        // let audio = $('.audio audio')[0];
+        // console.log($('.speed').text())
+        // audio.playbackRate = 1.2;
     });
 });
