@@ -1,0 +1,84 @@
+.music-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px 5px;
+}
+
+.music-box .action-button {
+    display: flex;
+    align-items: center;
+}
+
+.music-box i.fa {
+    font-size: 20px;
+    font-weight: bold;
+    color: #495057;
+}
+
+.progress-status {
+    width: 40%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.progress-bar {
+    height: 100%;
+}
+
+.progress {
+    width: 100%;
+    height: 50%;
+    border-radius: unset;
+}
+
+.capacity {
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-audio {
+    border: solid 1px #495057;
+    width: 50px;
+    height: 50px
+}
+
+.btn-audio:focus {
+    outline: none;
+}
+
+.fa.fa-pause {
+    display: none;
+}
+
+.btn-audio.speed {
+    font-size: 20px;
+}
+
+.action-button {
+    width: 70%;
+    display: flex;
+}
+
+.display {
+    display: block!important;
+}
+
+.not-display {
+    display: none!important;
+}
+
+.volume-bar {
+    /* display: none; */
+}
+
+.audio-background {
+    background-color: #007bff;
+}
+
+.audio-background i.fa-history {
+    color: white;
+}
