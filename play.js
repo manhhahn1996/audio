@@ -72,9 +72,10 @@ $(document).ready(function() {
         audio.currentTime += 3;
     }, false);
 
-    // progress.addEventListener('click', function(e) {
-    //     audio.currentTime = Math.floor(audio.duration) * (e.offsetX / e.target.offsetWidth);
-    // }, false);
+    progress.on('click', function(e) {
+        console.log(111, e.offsetX / e.target.offsetWidth);
+        audio.currentTime = Math.floor(audio.duration) * (e.offsetX / e.target.offsetWidth);
+    }, false);
 
     speed.on('click', function() {
         currentSpeedIdx = currentSpeedIdx + 1 < speeds.length ? currentSpeedIdx + 1 : 0;
