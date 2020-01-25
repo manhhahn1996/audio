@@ -75,7 +75,7 @@
 }
 
 .volume-bar {
-    /* display: none; */
+    position: relative;
 }
 
 .audio-background {
@@ -84,4 +84,18 @@
 
 .audio-background i.fa-history {
     color: white;
+}
+
+.volume-bar-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(128, 128, 128);
+    position: absolute;
+}
+
+.volume-bar-status #volume-bar {
+    margin-left: 10px;
 }
