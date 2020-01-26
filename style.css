@@ -64,6 +64,8 @@
 
 .btn-audio.speed {
     font-size: 20px;
+    font-weight: bold;
+    color: #495057;
 }
 
 .display {
@@ -82,20 +84,54 @@
     background-color: #007bff;
 }
 
-.audio-background i.fa-history {
+.audio-background i.fa {
     color: white;
 }
 
 .volume-bar-status {
+    width: 500%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     border-radius: 5px;
-    background-color: rgb(128, 128, 128);
+    background-color: #e9ecef;
     position: absolute;
 }
 
 .volume-bar-status #volume-bar {
-    margin-left: 10px;
+    margin: 0 10px;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#volume-bar:hover {
+    opacity: 1;
+}
+
+#volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+    box-shadow: -100vw 0 0 100vw dodgerblue;
+}
+
+#volume-bar::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+    box-shadow: -100vw 0 0 100vw dodgerblue;
 }

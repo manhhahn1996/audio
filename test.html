@@ -28,10 +28,14 @@
             <div class="volume-bar">
                 <button class="btn btn-audio volume">
                     <i class="fa fa-volume-up" aria-hidden="true"></i>
+                    <i class="fa fa-volume-down" aria-hidden="true"></i>
+                    <i class="fa fa-volume-off" aria-hidden="true"></i>
                 </button>
-                <div class="volume-bar-status">
-                    <i class="fa fa-volume-up" aria-hidden="true"></i>
+                <div class="volume-bar-status not-display">
+<!--                    <i class="fa fa-volume-down" aria-hidden="true"></i>-->
+                    <i class="fa fa-volume-off" aria-hidden="true"></i>
                     <input id="volume-bar" type="range" name="volume-bar" min="0" max="100" value="100" />
+                    <i class="fa fa-volume-up" aria-hidden="true"></i>
                 </div>
             </div>
             <button class="btn btn-audio speed">1x</button>
@@ -74,7 +78,7 @@
                 <button class="pcast-speed speed-button">1x</button>
                 <button class="pcast-mute">
                     <span class="text">Mute</span></button>
-                <input class="volume-bar" type="range" min="0" max="10">
+<!--                <input class="volume-bar" type="range" min="0" max="10">-->
             </div>
         </div>
         <audio src="./Duyen Am - Hoang Thuy Linh.mp3"></audio>

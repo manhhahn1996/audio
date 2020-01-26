@@ -2,6 +2,10 @@ function isPlaying(audio) {
     return !audio.paused;
 }
 $(document).ready(function() {
+    $('.volume i.fa-volume-up').show();
+    $('.volume i.fa-volume-down').hide();
+    $('.volume i.fa-volume-off').hide();
+
     $(document).on('click', '.play-pause', function() {
         $('.fa-play').toggleClass('not-display');
         $('.fa-pause').toggleClass('display');
@@ -12,8 +16,16 @@ $(document).ready(function() {
         }
     });
 
-    $(document).on('click', '.btn-audio.volume', function() {
-        $('.volume-bar').toggleClass('display')
+    $('.btn-audio.volume').on('click', function() {
+        $('.volume-bar-status').toggleClass('not-display');
+    });
+
+    $(document).mouseup(e => {
+        if (!$('.btn-audio.volume, #volume-bar').is(e.target)
+            && !$('.volume-bar-status').hasClass('not-display'))
+        {
+            $('.volume-bar-status').addClass('not-display');
+        }
     });
 
     let speeds = [1.0, 0.5, 0.8, 1.2, 1.5];
@@ -71,6 +83,20 @@ $(document).ready(function() {
 
     VolumeSlider.change('input', function() {
         audio.volume = parseInt(this.value) / 100;
+        let volumeValue = $('#volume-bar').val();
+        if (volumeValue >= 60 && volumeValue <= 100) {
+            $('.volume i.fa-volume-up').show();
+            $('.volume i.fa-volume-down').hide();
+            $('.volume i.fa-volume-off').hide();
+        } else if (volumeValue < 60 && volumeValue >= 1) {
+            $('.volume i.fa-volume-up').hide();
+            $('.volume i.fa-volume-down').show();
+            $('.volume i.fa-volume-off').hide();
+        } else {
+            $('.volume i.fa-volume-up').hide();
+            $('.volume i.fa-volume-down').hide();
+            $('.volume i.fa-volume-off').show();
+        }
     });
 
     mute.on('click', function() {
