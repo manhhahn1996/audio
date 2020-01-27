@@ -101,6 +101,7 @@
 
 .volume-bar-status #volume-bar {
     margin: 0 10px;
+    overflow: hidden;
     -webkit-appearance: none;
     width: 100%;
     height: 15px;
@@ -121,8 +122,8 @@
     appearance: none;
     width: 25px;
     height: 25px;
-    border-radius: 50%;
-    background: #007bff;
+    /* border-radius: 50%; */
+    background: #000000;
     cursor: pointer;
     box-shadow: -100vw 0 0 100vw dodgerblue;
 }
@@ -130,8 +131,12 @@
 #volume-bar::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    border-radius: 50%;
-    background: #007bff;
+    /* border-radius: 50%; */
+    background: #000000;
     cursor: pointer;
     box-shadow: -100vw 0 0 100vw dodgerblue;
+}
+
+input[type="range"]::-moz-range-progress {
+    background-color: #43e5f7;
 }
