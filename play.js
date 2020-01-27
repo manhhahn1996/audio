@@ -21,9 +21,8 @@ $(document).ready(function() {
     });
 
     $(document).mouseup(e => {
-        if (!$('.btn-audio.volume, #volume-bar').is(e.target)
-            && !$('.volume-bar-status').hasClass('not-display'))
-        {
+        if (!$('.btn-audio.volume, #volume-bar, .volume-bar-status, .volume-bar-status i').is(e.target) &&
+            !$('.volume-bar-status').hasClass('not-display')) {
             $('.volume-bar-status').addClass('not-display');
         }
     });
