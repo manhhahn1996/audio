@@ -2,6 +2,9 @@ function isPlaying(audio) {
     return !audio.paused;
 }
 $(document).ready(function() {
+    $("#volume-bar").on('input', function() {
+        $(this).css('background', 'linear-gradient(to right, #007bff 0%, #007bff ' + $(this).val() + '%, #d3d3d3 ' + $(this).val() + '%, #d3d3d3 100%)');
+    });
     $('.volume i.fa-volume-up').show();
     $('.volume i.fa-volume-down').hide();
     $('.volume i.fa-volume-off').hide();
@@ -79,7 +82,6 @@ $(document).ready(function() {
         audio.playbackRate = speeds[currentSpeedIdx];
         $(this).text(speeds[currentSpeedIdx] + 'x');
     });
-
     VolumeSlider.change('input', function() {
         audio.volume = parseInt(this.value) / 100;
         let volumeValue = $('#volume-bar').val();
@@ -97,6 +99,16 @@ $(document).ready(function() {
             $('.volume i.fa-volume-off').show();
         }
     });
+    // $('input[type="range"]').change(function() {
+    //     var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+
+    //     $(this).css('background-image',
+    //         '-webkit-gradient(linear, left top, right top, ' +
+    //         'color-stop(' + val + ', #007bff), ' +
+    //         'color-stop(' + val + ', #d3d3d3)' +
+    //         ')'
+    //     );
+    // });
 
     mute.on('click', function() {
         if (audio.muted) {
