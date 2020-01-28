@@ -68,6 +68,10 @@
     color: #495057;
 }
 
+.btn-audio.volume i {
+    z-index: -999;
+}
+
 .display {
     display: block!important;
 }
@@ -101,7 +105,7 @@
 
 .volume-bar-status #volume-bar {
     margin: 0 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     -webkit-appearance: none;
     width: 100%;
     height: 15px;
@@ -111,6 +115,8 @@
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    background: linear-gradient(to right, #007bff 0%, #007bff 100%);
+    /* background: -webkit-gradient( linear, left top, right top, color-stop(1, #007bff), color-stop(1, #d3d3d3)); */
 }
 
 #volume-bar:hover {
@@ -122,17 +128,17 @@
     appearance: none;
     width: 25px;
     height: 25px;
-    /* border-radius: 50%; */
+    border-radius: 50%;
     background: #495057;
     cursor: pointer;
-    box-shadow: -100vw 0 0 100vw dodgerblue;
+    /* box-shadow: -100vw 0 0 100vw dodgerblue; */
 }
 
 #volume-bar::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    /* border-radius: 50%; */
+    border-radius: 50%;
     background: #495057;
     cursor: pointer;
-    box-shadow: -100vw 0 0 100vw dodgerblue;
+    /* box-shadow: -100vw 0 0 100vw dodgerblue; */
 }
