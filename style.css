@@ -123,7 +123,7 @@
     width: 25px;
     height: 25px;
     /* border-radius: 50%; */
-    background: #000000;
+    background: #495057;
     cursor: pointer;
     box-shadow: -100vw 0 0 100vw dodgerblue;
 }
@@ -132,11 +132,7 @@
     width: 25px;
     height: 25px;
     /* border-radius: 50%; */
-    background: #000000;
+    background: #495057;
     cursor: pointer;
     box-shadow: -100vw 0 0 100vw dodgerblue;
-}
-
-input[type="range"]::-moz-range-progress {
-    background-color: #43e5f7;
 }
