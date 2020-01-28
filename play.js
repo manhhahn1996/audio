@@ -3,7 +3,7 @@ function isPlaying(audio) {
 }
 $(document).ready(function() {
     $("#volume-bar").on('input', function() {
-        $(this).css('background', 'linear-gradient(to right, #007bff 0%, #007bff ' + $(this).val() + '%, #d3d3d3 ' + $(this).val() + '%, #d3d3d3 100%)');
+        $(this).css('background', 'linear-gradient(90deg, #007bff ' + $(this).val() + '%, #d3d3d3 ' + ($(this).val()) + '%)');
     });
     $('.volume i.fa-volume-up').show();
     $('.volume i.fa-volume-down').hide();
@@ -23,8 +23,8 @@ $(document).ready(function() {
         $('.volume-bar-status').toggleClass('not-display');
     });
 
-    $(document).mouseup(e => {
-        if (!$('#volume-bar, .volume-bar-status, .volume-bar-status i').is(e.target) &&
+    $(document).click(e => {
+        if (!$('.btn-audio.volume, #volume-bar, .volume-bar-status, .volume-bar-status i').is(e.target) &&
             !$('.volume-bar-status').hasClass('not-display')) {
             $('.volume-bar-status').addClass('not-display');
         }
@@ -34,7 +34,6 @@ $(document).ready(function() {
     let audio = $('.audio audio')[0];
     let progress = $('#music-progress-bar');
     let speed = $('.btn-audio.speed');
-    let mute = $('.pcast-mute');
     let currentTime = $('.capacity .start');
     let duration = $('.capacity .end');
     let VolumeSlider = $('#volume-bar');
@@ -42,7 +41,7 @@ $(document).ready(function() {
     let currentSpeedIdx = 0;
 
     let toHHMMSS = function(totalsecs) {
-        let sec_num = parseInt(totalsecs, 10); // don't forget the second param
+        let sec_num = parseInt(totalsecs, 10);
         let minutes = Math.floor(sec_num / 60);
         let seconds = sec_num - (minutes * 60);
 
@@ -74,7 +73,6 @@ $(document).ready(function() {
 
     $(document).on('click', '#music-progress', function(e) {
         audio.currentTime = Math.floor(audio.duration) * (e.offsetX / $('#music-progress').width());
-
     });
 
     speed.on('click', function() {
@@ -82,8 +80,8 @@ $(document).ready(function() {
         audio.playbackRate = speeds[currentSpeedIdx];
         $(this).text(speeds[currentSpeedIdx] + 'x');
     });
-    VolumeSlider.change('input', function() {
-        audio.volume = parseInt(this.value) / 100;
+    VolumeSlider.on('input', function() {
+        audio.volume = parseInt($(this).val()) / 100;
         let volumeValue = $('#volume-bar').val();
         if (volumeValue >= 60 && volumeValue <= 100) {
             $('.volume i.fa-volume-up').show();
@@ -100,7 +98,7 @@ $(document).ready(function() {
         }
     });
     // $('input[type="range"]').change(function() {
-    //     var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+    //     var val = ($(this).val() + '%';
 
     //     $(this).css('background-image',
     //         '-webkit-gradient(linear, left top, right top, ' +
@@ -109,16 +107,6 @@ $(document).ready(function() {
     //         ')'
     //     );
     // });
-
-    mute.on('click', function() {
-        if (audio.muted) {
-            audio.muted = false;
-            this.querySelector('span').innerHTML = 'Mute';
-        } else {
-            audio.muted = true;
-            this.querySelector('span').innerHTML = 'Unmute';
-        }
-    }, false);
 
     $(document).on('click', '.btn-audio.repeat', function() {
         let audio = $('.audio audio')[0];
@@ -133,4 +121,21 @@ $(document).ready(function() {
         $('.btn-audio.repeat-time').toggleClass('audio-background');
     });
 
+    $(document).on('click', '.volume-bar-status i.fa-volume-off', function() {
+        $('.volume i.fa-volume-up').hide();
+        $('.volume i.fa-volume-down').hide();
+        $('.volume i.fa-volume-off').show();
+        $('#volume-bar').css('background', 'linear-gradient(90deg, #007bff 0%, #d3d3d3 0%)');
+        $('#volume-bar').val(0);
+        audio.volume = 0;
+    });
+
+    $(document).on('click', '.volume-bar-status i.fa-volume-up', function() {
+        $('.volume i.fa-volume-up').show();
+        $('.volume i.fa-volume-down').hide();
+        $('.volume i.fa-volume-off').hide();
+        $('#volume-bar').css('background', 'linear-gradient(90deg, #007bff 100%, #d3d3d3 100%)');
+        $('#volume-bar').val(100);
+        audio.volume = 1;
+    });
 });
