@@ -1,7 +1,3 @@
-.button-group {
-    width: 14%;
-}
-
 .music-box {
     display: flex;
     justify-content: space-between;
@@ -14,6 +10,10 @@
     width: 80%;
     display: flex;
     align-items: center;
+}
+
+.button-group {
+    width: 14%;
 }
 
 .music-box i.fa {
@@ -45,6 +45,10 @@
     justify-content: space-between;
 }
 
+button.btn-audio.volume>* {
+    pointer-events: none;
+}
+
 .btn-audio {
     border: solid 1px #495057;
     width: 50px;
@@ -58,38 +62,18 @@
     outline: none;
 }
 
-.fa.fa-pause {
-    display: none;
-}
-
 .btn-audio.speed {
     font-size: 20px;
     font-weight: bold;
     color: #495057;
 }
 
-.btn-audio.volume i {
-    z-index: -999;
-}
-
-.display {
-    display: block!important;
-}
-
-.not-display {
-    display: none!important;
+.fa.fa-pause {
+    display: none;
 }
 
 .volume-bar {
     position: relative;
-}
-
-.audio-background {
-    background-color: #007bff;
-}
-
-.audio-background i.fa {
-    color: white;
 }
 
 .volume-bar-status {
@@ -146,4 +130,20 @@
 .volume-bar-status i.fa-volume-up,
 .volume-bar-status i.fa-volume-off {
     cursor: pointer;
+}
+
+.display {
+    display: block!important;
+}
+
+.not-display {
+    display: none!important;
+}
+
+.audio-background {
+    background-color: #007bff;
+}
+
+.audio-background i.fa {
+    color: white;
 }

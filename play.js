@@ -19,7 +19,7 @@ $(document).ready(function() {
         }
     });
 
-    $('.btn-audio.volume').on('click', function() {
+    $(document).on('click', '.btn-audio.volume', function() {
         $('.volume-bar-status').toggleClass('not-display');
     });
 
