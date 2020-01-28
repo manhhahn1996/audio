@@ -68,6 +68,10 @@
     color: #495057;
 }
 
+.btn-audio.volume i {
+    z-index: -999;
+}
+
 .display {
     display: block!important;
 }
